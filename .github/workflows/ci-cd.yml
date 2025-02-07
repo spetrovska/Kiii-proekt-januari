@@ -34,21 +34,3 @@ jobs:
           file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-boot-app:latest
-
-  # Optional Deployment Job (for CD bonus points)
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build_and_push
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Deploy to Remote Server via SSH
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          echo "$SSH_PRIVATE_KEY" > key.pem
-          chmod 600 key.pem
-          ssh -i key.pem -o StrictHostKeyChecking=no user@yourserver.com << 'EOF'
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-boot-app:latest
-            docker-compose -f /path/to/your/docker-compose.yml up -d
-          EOF
-
