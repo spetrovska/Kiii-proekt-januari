@@ -1,0 +1,10 @@
+# IntelliJ IDEA settings
+.idea/
+*.iml
+
+# Build directories (adjust if needed)
+target/
+build/
+
+# OS-specific files
+.DS_Store

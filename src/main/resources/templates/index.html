@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items List</title>
+</head>
+<body>
+<h1>Items in the Database</h1>
+<ul>
+    <th:block th:each="item : ${items}">
+        <li th:text="${item.name}"></li>
+    </th:block>
+</ul>
+</body>
+</html>
