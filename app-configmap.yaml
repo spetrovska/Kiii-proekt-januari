@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: my-namespace
+data:
+  SPRING_DATA_MONGODB_URI: "mongodb://admin:password@mongo:27017/testdb?authSource=admin"
+
