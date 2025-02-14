@@ -6,10 +6,10 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./data:/data/db  # This mounts a local directory to persist MongoDB data
+      - ./data:/data/db  
 
   app:
-    image: spring-boot-app  # Make sure you've built your Spring Boot image already
+    image: spring-boot-app  
     container_name: spring-boot-app
     ports:
       - "8080:8080"
